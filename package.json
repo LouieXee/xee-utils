@@ -1,11 +1,12 @@
 {
   "name": "xee-utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
-  "main": "./build/index.js",
+  "main": "build/index.js",
   "scripts": {
     "serve": "gulp serve",
     "build": "gulp build",
+    "pack": "gulp pack",
     "test": "gulp test"
   },
   "author": "hzxiezhongzheng",

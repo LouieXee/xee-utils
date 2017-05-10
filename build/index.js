@@ -18,7 +18,7 @@ var _Events2 = _interopRequireDefault(_Events);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_utils2.default.version = VERSION;
+_utils2.default.version = typeof VERSION != 'undefined' ? VERSION : null;
 
 _utils2.default.Base = _Base2.default;
 _utils2.default.Events = _Events2.default;

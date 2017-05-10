@@ -2,12 +2,10 @@
 
 const expect = require('chai').expect;
 
-const xeeUtils = require('../build/bundle.js').default;
-
-describe('type test', () => {
-    it('isString test', () => {
+describe('test', () => {
+    it('test', () => {
         expect((() => {
-            return xeeUtils.isString('1');
-        })()).to.be.equal(true);
+            return 'test'
+        })()).to.be.equal('test');
     })
 })
