@@ -4,6 +4,7 @@ const exec = require('child_process').exec;
 const path = require('path');
 
 const gulp = require('gulp');
+const babel = require('gulp-babel');
 const mocha = require('gulp-mocha');
 const del = require('del');
 const browserSync = require('browser-sync');
@@ -50,12 +51,23 @@ gulp.task('serve', () => {
 
 });
 
-gulp.task('build', ['clean'], () => {
+gulp.task('pack', ['clean'], () => {
     return new Promise((resolve, reject) => {
         exec('webpack --config ./webpack.config.publish.js', () => {
             resolve();
         })
     })
+})
+
+gulp.task('build', ['clean'], () => {
+    return gulp.src(path.resolve(process.cwd(), './src/**/*.js'))
+        .pipe(babel({
+            presets: ['es2015'],
+            plugins: [
+                'babel-plugin-add-module-exports'
+            ]
+        }))
+        .pipe(gulp.dest('build'));
 })
 
 gulp.task('test', done => {
