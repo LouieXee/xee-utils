@@ -10,7 +10,7 @@ var _utils = require('./utils');
 
 var _utils2 = _interopRequireDefault(_utils);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -28,14 +28,14 @@ var Events = function () {
                 this._events[eventName] = {};
             }
 
-            this._events[eventName][_utils2.default.getUniqueID()] = callback;
+            this._events[eventName][_utils2["default"].getUniqueID()] = callback;
 
             return this;
         }
     }, {
         key: 'off',
         value: function off(eventName, callback) {
-            if (!_utils2.default.isString(eventName)) {
+            if (!_utils2["default"].isString(eventName)) {
                 this._events = {};
                 return this;
             }
@@ -44,7 +44,7 @@ var Events = function () {
                 return this;
             }
 
-            if (!_utils2.default.isFunction(callback)) {
+            if (!_utils2["default"].isFunction(callback)) {
                 this._events[eventName] = {};
                 return this;
             }
@@ -78,5 +78,5 @@ var Events = function () {
     return Events;
 }();
 
-exports.default = Events;
+exports["default"] = Events;
 module.exports = exports['default'];

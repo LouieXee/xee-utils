@@ -18,12 +18,12 @@ var _Events = require('./Events');
 
 var _Events2 = _interopRequireDefault(_Events);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-_utils2.default.version = _package.version;
+_utils2["default"].version = _package.version;
 
-_utils2.default.Base = _Base2.default;
-_utils2.default.Events = _Events2.default;
+_utils2["default"].Base = _Base2["default"];
+_utils2["default"].Events = _Events2["default"];
 
-exports.default = _utils2.default;
+exports["default"] = _utils2["default"];
 module.exports = exports['default'];

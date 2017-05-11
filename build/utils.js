@@ -146,7 +146,7 @@ var utils = {
     }
 };
 
-exports.default = utils;
+exports["default"] = utils;
 
 
 function _getType(target) {

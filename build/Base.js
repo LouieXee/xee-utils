@@ -10,5 +10,5 @@ var Base = function Base() {
   _classCallCheck(this, Base);
 };
 
-exports.default = Base;
+exports["default"] = Base;
 module.exports = exports["default"];
