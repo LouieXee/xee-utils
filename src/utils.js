@@ -1,31 +1,22 @@
-let count = 0; // 设置唯一ID用
+let __count__ = 0; // 设置唯一ID用
+let __style__ = document.createElement('div').style;
 
 const utils = {
-    IS_WEIXIN: _testUserAgent([/micromessenger/i]),
+    getAvaliableProperty (properties) {
+        for (let property of properties) {
+            if (typeof __style__[property] != 'undefined') {
+                return true;
+            }
+        }
 
-    IS_YIXIN: _testUserAgent([/yixin/i]),
-
-    IS_PC: !_testUserAgent([/Android/i, /iPhone/i, /SymbianOS/i, /Windows Phone/i, /iPad/i, /iPod/i]),
-
-    IS_IOS: _testUserAgent([/iPhone/i, /iPad/i, /iPod/i]),
-
-    IS_ANDROID: _testUserAgent([/Android/i]),
-
-    ANIMATION_NAME: _getStyleProperty(['animation']),
-
-    TRANSITION_NAME: _getStyleProperty(['transition']),
-
-    TRANSFORM_NAME: _getStyleProperty(['transform']),
+        return false;
+    },
 
     noop: function () {},
 
     getUniqueID: function () {
-        return new Date().getTime().toString(36).toUpperCase() + '' + (Math.random() * 10e16).toString(36).toUpperCase() + count++;
+        return new Date().getTime().toString(36).toUpperCase() + '' + (Math.random() * 10e16).toString(36).toUpperCase() + __count__++;
     },
-
-    getStyleProperty: _getStyleProperty,
-
-    testUserAgent: _testUserAgent,
 
     isString: function (target) {
         return _getType(target) === '[object String]';
@@ -139,30 +130,4 @@ export default utils;
 
 function _getType (target) {
     return Object.prototype.toString.call(target);
-}
-
-function _testUserAgent (testArr) {
-    if (typeof window == 'undefined') return false;
-
-    let userAgentInfo = window.navigator.userAgent;  
-    for (let v = 0; v < testArr.length; v++) {  
-        if (testArr[v].test(userAgentInfo)) { 
-            return true;
-        }  
-    }  
-
-    return false;  
-}
-
-function _getStyleProperty (testPropArr) {
-    if (typeof document == 'undefined') return false;
-
-    let divStyle = document.createElement('div').style;
-    
-    for (let i = 0, l = testPropArr.length; i < l; i++) {
-        if (divStyle[testPropArr[i]] != undefined) {
-            return testPropArr[i];
-        }
-    }
-    return false;
 }
